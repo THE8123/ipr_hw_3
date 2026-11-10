@@ -1,0 +1,16 @@
+the8@calculator ipr_hw_3 % docker logs ipr_app
+2026-11-10 16:18:20,770 listening port=8000 storage=sqlite
+2026-11-10 16:18:53,719 listening port=8000 storage=sqlite
+2026-11-10 16:19:18,800 http 172.17.0.1 "GET / HTTP/1.1" 200 -
+2026-11-10 16:19:28,219 http 172.17.0.1 "GET /readyz HTTP/1.1" 200 -
+2026-11-10 16:19:28,240 http 172.17.0.1 "GET /favicon.ico HTTP/1.1" 404 -
+2026-11-10 16:19:30,552 http 172.17.0.1 "GET / HTTP/1.1" 200 -
+2026-11-10 16:19:30,566 http 172.17.0.1 "GET /favicon.ico HTTP/1.1" 404 -
+2026-11-10 16:19:55,497 http 172.17.0.1 "GET /increment HTTP/1.1" 404 -
+2026-11-10 16:20:09,323 http 172.17.0.1 "POST /increment HTTP/1.1" 200 -
+2026-11-10 16:20:11,632 http 172.17.0.1 "POST /increment HTTP/1.1" 200 -
+2026-11-10 16:20:12,152 http 172.17.0.1 "POST /increment HTTP/1.1" 200 -
+2026-11-10 16:20:14,425 http 172.17.0.1 "GET / HTTP/1.1" 200 -
+2026-11-10 16:20:14,444 http 172.17.0.1 "GET /favicon.ico HTTP/1.1" 404 -
+the8@calculator ipr_hw_3 % curl 127.0.0.1:8080
+{"greeting": "gamarjoba", "count": 3, "hostname": "79609a02ce31", "storage": "sqlite"}%
