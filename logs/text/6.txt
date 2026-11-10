@@ -1,0 +1,26 @@
+the8@calculator ipr_hw_3 % docker-compose up -d
+[+] up 3/3
+ ✔ Volume ipr_hw_3_app_data Created                                                                                                                                                   0.0s
+ ✔ Network ipr_hw_3_default Created                                                                                                                                                   0.0s
+ ✔ Container ipr_hw_3-app-1 Started                                                                                                                                                   0.1s
+the8@calculator ipr_hw_3 % docker ps
+CONTAINER ID   IMAGE          COMMAND              CREATED         STATUS         PORTS                                         NAMES
+5ba8f4da4fdb   ipr_hw_3-app   "python -u app.py"   6 seconds ago   Up 5 seconds   0.0.0.0:8080->8000/tcp, [::]:8080->8000/tcp   ipr_hw_3-app-1
+the8@calculator ipr_hw_3 % curl -fsS -X POST 127.0.0.1:8080/increment
+{"greeting": "gamarboba", "count": 1, "hostname": "5ba8f4da4fdb", "storage": "sqlite"}%
+the8@calculator ipr_hw_3 % curl -fsS -X POST 127.0.0.1:8080/increment
+{"greeting": "gamarboba", "count": 2, "hostname": "5ba8f4da4fdb", "storage": "sqlite"}%
+the8@calculator ipr_hw_3 % docker-compose down
+[+] down 2/2
+ ✔ Container ipr_hw_3-app-1 Removed                                                                                                                                                   3.1s
+ ✔ Network ipr_hw_3_default Removed                                                                                                                                                   0.1s
+the8@calculator ipr_hw_3 % docker-compose up -d
+[+] up 2/2
+ ✔ Network ipr_hw_3_default Created                                                                                                                                                   0.0s
+ ✔ Container ipr_hw_3-app-1 Started                                                                                                                                                   0.1s
+the8@calculator ipr_hw_3 % curl -fsS -X POST 127.0.0.1:8080/increment
+{"greeting": "gamarboba", "count": 3, "hostname": "1a396b61342f", "storage": "sqlite"}%
+the8@calculator ipr_hw_3 % curl -fsS -X POST 127.0.0.1:8080/increment
+{"greeting": "gamarboba", "count": 4, "hostname": "1a396b61342f", "storage": "sqlite"}%
+the8@calculator ipr_hw_3 % curl -fsS -X POST 127.0.0.1:8080/increment
+{"greeting": "gamarboba", "count": 5, "hostname": "1a396b61342f", "storage": "sqlite"}%

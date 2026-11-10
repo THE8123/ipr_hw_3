@@ -1,0 +1,11 @@
+services:
+  app:
+    env_file:
+      - .env
+    build: .
+    ports:
+      - "${PORT2}:${PORT}"
+    volumes:
+      - app_data:/data
+volumes:
+  app_data:
